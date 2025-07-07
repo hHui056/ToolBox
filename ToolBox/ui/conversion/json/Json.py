@@ -29,7 +29,7 @@ class Json(JsonPanel):
         self.tree_ctrl.DeleteAllItems()
 
     def __show_message(self, message):
-        wx.MessageDialog(self, message, '操作提醒', wx.OK).ShowModal()
+        wx.MessageDialog(self, message, '提示', wx.OK).ShowModal()
 
     def add_json_to_tree(self, json_data, parent):
         if isinstance(json_data, dict):
