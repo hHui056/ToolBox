@@ -1,5 +1,7 @@
 from pysm4 import sm4
 import wx
+import random
+import string
 
 from ui.encryAndDecry.sm4.SM4Panel import SM4Panel
 
@@ -73,3 +75,15 @@ class SM4(SM4Panel):
 
     def decryptECB(self, cipher_text, key):
         return sm4.decrypt_ecb(cipher_text, key)
+
+    def random_secret_key(self, event):
+        self.edit_secret_key.SetValue(self.generate_random_key())
+
+    def random_iv(self, event):
+        self.edit_iv.SetValue(self.generate_random_key())
+
+    # TODO 随机生成16位小写字母和数字的组合
+    def generate_random_key(self):
+        """生成16位小写字母和数字的随机组合"""
+        characters = string.ascii_lowercase + string.digits
+        return ''.join(random.choices(characters, k=16))
