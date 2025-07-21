@@ -30,13 +30,16 @@ class TTS(TTSPanel):
     # dlg.ShowModal()
 
     async def get_voice(self):
-        voices = await edge_tts.list_voices()
-        self.all_voices = [voice for voice in voices if voice['ShortName'].startswith('zh-CN')]
-        # self.all_voices = [voice['ShortName'].replace('zh-CN-', '', 1).replace('Neural', '', 1) for voice in
-        #                    enabled_voices]
-        for voice in self.all_voices:
-            self.voice_choices.Append(
-                f'{voice["ShortName"].replace("zh-CN-", "", 1).replace("Neural", "", 1)} - {'男' if voice['Gender'] == 'Male' else '女'}')
+        try:
+            voices = await edge_tts.list_voices()
+            self.all_voices = [voice for voice in voices if voice['ShortName'].startswith('zh-CN')]
+            # self.all_voices = [voice['ShortName'].replace('zh-CN-', '', 1).replace('Neural', '', 1) for voice in
+            #                    enabled_voices]
+            for voice in self.all_voices:
+                self.voice_choices.Append(
+                    f'{voice["ShortName"].replace("zh-CN-", "", 1).replace("Neural", "", 1)} - {'男' if voice['Gender'] == 'Male' else '女'}')
+        except Exception as e:
+            print(e)
 
     def __show_message(self, message):
         wx.MessageDialog(self, message, '提示', wx.OK).ShowModal()

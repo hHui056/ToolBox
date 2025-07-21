@@ -4,3 +4,4 @@ pyperclip~=1.9.0
 edge-tts~=7.0.2
 pysm4~=0.7.2
 pillow~=11.3.0
+pycryptodome~=3.23.0
