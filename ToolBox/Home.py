@@ -1,6 +1,6 @@
 from ui.codec.Codec import Codec
 from ui.encryAndDecry.EncryAndDecry import EncryAndDecry
-from ui.home.HomeFrame import HomeFrame
+from HomeFrame import HomeFrame
 from ui.conversion.Conversion import Conversion
 from ui.generate.GeneratePanel import GeneratePanel
 

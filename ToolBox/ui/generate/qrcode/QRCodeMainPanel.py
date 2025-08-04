@@ -272,10 +272,6 @@ class QRDecoderPanel(scrolled.ScrolledPanel):
         empty_bmp = self.create_empty_bitmap(400, 300)
         self.image_display.SetBitmap(empty_bmp)
 
-        # 识别结果区域
-        self.result_label = wx.StaticText(self, label="识别结果:")
-        self.result_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
-
         self.result_text = wx.TextCtrl(
             self,
             style=wx.TE_MULTILINE | wx.TE_READONLY | wx.TE_RICH | wx.BORDER_SUNKEN
@@ -315,7 +311,6 @@ class QRDecoderPanel(scrolled.ScrolledPanel):
         image_box = wx.StaticBox(self, label="图片预览")
         image_box_sizer = wx.StaticBoxSizer(image_box, wx.VERTICAL)
         image_box_sizer.Add(self.image_display, 0, wx.ALIGN_CENTER | wx.ALL, 10)
-
         # 结果显示区域
         result_box = wx.StaticBox(self, label="识别内容")
         result_box_sizer = wx.StaticBoxSizer(result_box, wx.VERTICAL)
